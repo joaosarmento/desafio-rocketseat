@@ -21,17 +21,17 @@ import java.util.Objects;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Curso {
+public class Course {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @NotBlank(message = "O nome não pode ser vazio.")
+    @NotBlank(message = "The name cannot be empty or null.")
     @Column(nullable = false)
     private String name;
 
-    @NotBlank(message = "Categoria não pode ser vazia.")
+    @NotBlank(message = "The category cannot be empty or null.")
     @Column(nullable = false)
     private String category;
 
@@ -49,8 +49,8 @@ public class Curso {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Curso curso = (Curso) o;
-        return id == curso.id;
+        Course course = (Course) o;
+        return id == course.id;
     }
 
     @Override
