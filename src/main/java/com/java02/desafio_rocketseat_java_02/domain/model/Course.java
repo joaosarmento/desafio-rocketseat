@@ -1,10 +1,6 @@
 package com.java02.desafio_rocketseat_java_02.domain.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -19,13 +15,14 @@ import java.util.Objects;
 @Entity
 @Getter
 @Setter
+@Table(name = "course")
 @NoArgsConstructor
 @AllArgsConstructor
 public class Course {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     @NotBlank(message = "The name cannot be empty or null.")
     @Column(nullable = false)
@@ -36,7 +33,7 @@ public class Course {
     private String category;
 
     @Column(nullable = false)
-    private boolean active = true;
+    private Boolean active = true;
 
     @CreationTimestamp
     @Column(nullable = false, updatable = false)
@@ -57,5 +54,4 @@ public class Course {
     public int hashCode() {
         return Objects.hashCode(id);
     }
-
 }
