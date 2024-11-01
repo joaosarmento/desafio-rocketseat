@@ -16,7 +16,7 @@ public class CourseResponseDto {
   String category;
   boolean active;
   LocalDateTime createdAt;
-  LocalDateTime updateAt;
+  LocalDateTime updatedAt;
 
   @Default
   public CourseResponseDto(
@@ -24,11 +24,11 @@ public class CourseResponseDto {
       final String category,
       final boolean active,
       final LocalDateTime createdAt,
-      final LocalDateTime updateAt) {
+      final LocalDateTime updatedAt) {
     this.name = name;
     this.category = category;
     this.active = active;
     this.createdAt = createdAt;
-    this.updateAt = updateAt;
+    this.updatedAt = updatedAt;
   }
 }
