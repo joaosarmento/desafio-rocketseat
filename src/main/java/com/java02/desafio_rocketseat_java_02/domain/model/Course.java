@@ -24,37 +24,39 @@ import org.hibernate.annotations.UpdateTimestamp;
 @AllArgsConstructor
 public class Course {
 
-  @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-  @NotBlank(message = "The name cannot be empty or null.")
-  @Column(nullable = false)
-  private String name;
+    @NotBlank(message = "The name cannot be empty or null.")
+    @Column(nullable = false)
+    private String name;
 
-  @NotBlank(message = "The category cannot be empty or null.")
-  @Column(nullable = false)
-  private String category;
+    @NotBlank(message = "The category cannot be empty or null.")
+    @Column(nullable = false)
+    private String category;
 
-  @Column(nullable = false)
-  private boolean active = true;
+    @Column(nullable = false)
+    private Boolean active = true;
 
-  @CreationTimestamp
-  @Column(nullable = false, updatable = false)
-  private LocalDateTime createdAt;
+    @CreationTimestamp
+    @Column(nullable = false, updatable = false)
+    private LocalDateTime createdAt;
 
-  @UpdateTimestamp private LocalDateTime updatedAt;
+    @UpdateTimestamp 
+    private LocalDateTime updatedAt;
 
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    Course course = (Course) o;
+
+    @Override
+    public boolean equals(Object o) {
+      if (this == o) return true;
+      if (o == null || getClass() != o.getClass()) return false;
+      Course course = (Course) o;
     return id == course.id;
   }
 
-  @Override
-  public int hashCode() {
-    return Objects.hashCode(id);
-  }
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(id);
+    }
 }

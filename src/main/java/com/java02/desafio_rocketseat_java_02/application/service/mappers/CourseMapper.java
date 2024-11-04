@@ -7,5 +7,5 @@ import org.mapstruct.Mapper;
 @Mapper(componentModel = "spring")
 public interface CourseMapper {
 
-  CourseResponseDto map(Course course);
+    CourseResponseDto map(Course course);
 }

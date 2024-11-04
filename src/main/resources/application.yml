@@ -4,8 +4,8 @@ spring:
       enabled: true
   datasource:
     url: jdbc:h2:mem:mydb
-    username: sa
-    password: nat
+    username: java02
+    password: rockJava02
     driverClassName: org.h2.Driver
   jpa:
     database-platform: org.hibernate.dialect.H2Dialect
