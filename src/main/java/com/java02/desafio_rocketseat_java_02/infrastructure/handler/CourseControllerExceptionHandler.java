@@ -11,11 +11,11 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 @RestControllerAdvice
 public class CourseControllerExceptionHandler extends ResponseEntityExceptionHandler {
 
-  @ExceptionHandler({BusinessException.class})
-  public ResponseEntity<Object> handleBusinessException(final BusinessException ex) {
-    log.error(ex.getMessage());
-    final var errorResponse = new ErrorResponse(ex.getMessage(), ex.getErrorCode());
+    @ExceptionHandler({BusinessException.class})
+    public ResponseEntity<Object> handleBusinessException(final BusinessException ex) {
+        log.error(ex.getMessage());
+        final var errorResponse = new ErrorResponse(ex.getMessage(), ex.getErrorCode());
 
-    return ResponseEntity.badRequest().body(errorResponse);
-  }
+        return ResponseEntity.badRequest().body(errorResponse);
+    }
 }
