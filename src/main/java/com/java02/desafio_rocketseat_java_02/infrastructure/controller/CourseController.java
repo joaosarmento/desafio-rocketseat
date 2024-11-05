@@ -49,7 +49,7 @@ public class CourseController {
         return service.getByCategoryAndName(category, name);
     }
 
-    @DeleteMapping("/courser/{id}")
+    @DeleteMapping("/courses/{id}")
     public ResponseEntity<String> deleteCourseById(@PathVariable("id") Long id) {
         service.deleteCourseById(id);
         return ResponseEntity.ok().body("User succesfully deleted.");
