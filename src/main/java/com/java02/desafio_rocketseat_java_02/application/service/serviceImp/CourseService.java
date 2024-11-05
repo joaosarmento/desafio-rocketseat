@@ -55,4 +55,9 @@ public class CourseService {
         course.setActive(request.getActive());
         return mapper.map(repository.save(course));
     }
+
+    public void deleteCourseById(final Long id) {
+        repository.findById(id).orElseThrow(() -> new CourseNotFoundException(id));
+        repository.deleteById(id);
+    }
 }
