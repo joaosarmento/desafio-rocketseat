@@ -37,7 +37,6 @@ public class CourseService {
         courseFound.setName(request.getName());
         courseFound.setCategory(request.getCategory());
         courseFound.setActive(request.getActive());
-        courseFound.setUpdatedAt(now());
         return mapper.map(repository.save(courseFound));
     }
 
@@ -47,5 +46,13 @@ public class CourseService {
             listCoursesResponse.add(mapper.map(course));
         }
         return listCoursesResponse;
+    }
+
+    public CourseResponseDto create(final CourseRequestDto request) {
+        var course = new Course();
+        course.setName(request.getName());
+        course.setCategory(request.getCategory());
+        course.setActive(request.getActive());
+        return mapper.map(repository.save(course));
     }
 }
