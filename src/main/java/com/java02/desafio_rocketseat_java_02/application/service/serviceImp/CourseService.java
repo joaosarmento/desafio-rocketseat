@@ -12,8 +12,6 @@ import org.springframework.stereotype.Component;
 import java.util.ArrayList;
 import java.util.List;
 
-import static java.time.LocalDateTime.now;
-
 //todo: tem que implementar a interface
 @Component
 @RequiredArgsConstructor

@@ -7,7 +7,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import com.java02.desafio_rocketseat_java_02.application.service.serviceImp.CourseService;
-
 import java.util.List;
 
 import static org.springframework.http.HttpStatus.CREATED;
