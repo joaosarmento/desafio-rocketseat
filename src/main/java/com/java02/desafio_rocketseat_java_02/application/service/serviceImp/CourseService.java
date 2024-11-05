@@ -48,4 +48,9 @@ public class CourseService {
         }
         return listCoursesResponse;
     }
+
+    public void deleteCourseById(final Long id) {
+        repository.findById(id).orElseThrow(() -> new CourseNotFoundException(id));
+        repository.deleteById(id);
+    }
 }

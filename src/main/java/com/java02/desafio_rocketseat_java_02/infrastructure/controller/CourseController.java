@@ -3,6 +3,8 @@ package com.java02.desafio_rocketseat_java_02.infrastructure.controller;
 import com.java02.desafio_rocketseat_java_02.application.dto.CourseRequestDto;
 import com.java02.desafio_rocketseat_java_02.application.dto.CourseResponseDto;
 import lombok.RequiredArgsConstructor;
+
+import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import com.java02.desafio_rocketseat_java_02.application.service.serviceImp.CourseService;
@@ -44,5 +47,11 @@ public class CourseController {
             @RequestParam(name = "name") String name
     ) {
         return service.getByCategoryAndName(category, name);
+    }
+
+    @DeleteMapping("/courser/{id}")
+    public ResponseEntity<String> deleteCourseById(@PathVariable("id") Long id) {
+        service.deleteCourseById(id);
+        return ResponseEntity.ok().body("User succesfully deleted.");
     }
 }

@@ -1,0 +1,1 @@
+INSERT INTO course (name, category, active, created_at, updated_at) VALUES ('Java', 'Programação', true, NOW(), NOW())
