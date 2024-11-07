@@ -55,4 +55,10 @@ public class CourseService {
         course.setActive(request.getActive());
         return mapper.map(repository.save(course));
     }
+
+    public CourseResponseDto toggleActiveStatus(final Long id) {
+        final var courseFound = repository.findById(id).orElseThrow(() -> new CourseNotFoundException(id));
+        courseFound.setActive(!courseFound.getActive());
+        return mapper.map(repository.save(courseFound));
+    }
 }
