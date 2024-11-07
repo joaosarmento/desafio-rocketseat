@@ -53,4 +53,10 @@ public class CourseController {
     public CourseResponseDto toggleActiveStatus(@PathVariable("id") final Long id) {
         return service.toggleActiveStatus(id);
     }
+  
+    @DeleteMapping("/courses/{id}")
+    public ResponseEntity<String> deleteCourseById(@PathVariable("id") Long id) {
+        service.deleteCourseById(id);
+        return ResponseEntity.ok().body("User successfully deleted.");
+    }
 }

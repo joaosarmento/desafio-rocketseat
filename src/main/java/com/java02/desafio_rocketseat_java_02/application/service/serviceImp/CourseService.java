@@ -12,8 +12,6 @@ import org.springframework.stereotype.Component;
 import java.util.ArrayList;
 import java.util.List;
 
-import static java.time.LocalDateTime.now;
-
 @Component
 @RequiredArgsConstructor
 public class CourseService {
@@ -54,10 +52,15 @@ public class CourseService {
         course.setActive(request.getActive());
         return mapper.map(repository.save(course));
     }
-
+      
     public CourseResponseDto toggleActiveStatus(final Long id) {
         final var courseFound = repository.findById(id).orElseThrow(() -> new CourseNotFoundException(id));
         courseFound.setActive(!courseFound.getActive());
         return mapper.map(repository.save(courseFound));
+    }
+  
+      public void deleteCourseById(final Long id) {
+        repository.findById(id).orElseThrow(() -> new CourseNotFoundException(id));
+        repository.deleteById(id);
     }
 }
