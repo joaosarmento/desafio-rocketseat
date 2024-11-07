@@ -47,4 +47,10 @@ public class CourseController {
 
         return ResponseEntity.status(CREATED).body(service.create(request));
     }
+
+    @PatchMapping("/{id}/active")
+    @ResponseStatus(OK)
+    public CourseResponseDto toggleActiveStatus(@PathVariable("id") final Long id) {
+        return service.toggleActiveStatus(id);
+    }
 }
